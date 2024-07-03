@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Books</title>
+</head>
+<body>
+    <div>
+        <h1><a href="">Book store</a></h1>
+    </div>
+
+    {% for book in books %}
+        {% if book.is_published %}
+            <div>
+                <img src="/media/{{book.photo}}" alt="Картинка" width="400">
+                <br>
+                <h1><a href="">{{book.title}}</a></h1>
+                {% for au in book.author.all %}
+                    <a href="">{{au}}</a> <br>
+                {% endfor %}
+                <h>{{book.price}} rub</h>
+                <br>
+                <p></p>
+            </div>
+        {% endif %}
+    {% endfor %}
+</body>
+</html>
