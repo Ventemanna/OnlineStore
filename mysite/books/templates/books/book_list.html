@@ -1,27 +1,38 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Books</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'books/css/site.css' %}">
 </head>
 <body>
     <div>
-        <h1><a href="">Book store</a></h1>
+        <h1 class="title"><a href="">Book store</a></h1>
+    </div>
+    <div class="content">
+        <div class="grid">
+            {% for book in books %}
+                {% if book.is_published %}
+                    <div class="book">
+                        <img src="media/{{book.photo}}" alt="Картинка" class="book-cover">
+                        <br>
+                        <h1><a href="">{{book.title}}</a></h1>
+                        {% for au in book.author.all %}
+                            <a href="" class="author">{{au}}</a>
+                        {% endfor %}
+                        <br>
+                        <h>{{book.price}} rub</h>
+                        <button><img src="{% static 'books/image/cart.svg' %}" alt="" class="cart-img"></button>
+                        <br>
+                        <p></p>
+                    </div>
+            {% endif %}
+        {% endfor %}
+        </div>
     </div>
 
-    {% for book in books %}
-        {% if book.is_published %}
-            <div>
-                <img src="/media/{{book.photo}}" alt="Картинка" width="400">
-                <br>
-                <h1><a href="">{{book.title}}</a></h1>
-                {% for au in book.author.all %}
-                    <a href="">{{au}}</a> <br>
-                {% endfor %}
-                <h>{{book.price}} rub</h>
-                <br>
-                <p></p>
-            </div>
-        {% endif %}
-    {% endfor %}
 </body>
 </html>

@@ -1,0 +1,39 @@
+.book-cover {
+    width: 400px;
+}
+
+.title {
+    color: white;
+    text-align: center;
+    background: #8695c2;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 50px;
+}
+
+.author {
+    color: black;
+    font-size: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 500px 500px 500px;
+    grid-template-rows: 900px 900px;
+    text-align: center;
+}
+
+.cart-img {
+    width: 30px;
+}
+
+button {
+    width: 60px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+}
